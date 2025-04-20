@@ -15,6 +15,7 @@ html, body {
     font-family: 'Munro', sans-serif;
     color:white;
     overflow-x: hidden;
+    touch-action: manipulation;
 }
 
 .main-content {
@@ -114,6 +115,7 @@ html, body {
 
 .message{
     font-size: 32px;
+    text-align: center;
 }
 
 @keyframes shake {
