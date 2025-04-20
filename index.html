@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Find an Ornate Key</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+    <div class="main-content">
+        <div class="wrapper-scale">
+            <div class="wrapper">
+                <div class="top-row">
+                    <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NW-v1.png">
+                    <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NE-v1.png">
+                </div>
+                <div class="middle-row">
+                    <div class="key-scale">
+                        <div class="key">
+                            <img src="img/Sonnet-KeyWebsite-KeyBase-v1.png">
+                    
+                            <div class="cylinders">
+                                <div class="c-green">
+                                    <img id="c-green" src="img/Sonnet-KeyWebsite-KeyCylinder-Green-0-v1.png">
+                                </div>
+                                <div class="c-blue">
+                                    <img id="c-blue" src="img/Sonnet-KeyWebsite-KeyCylinder-Blue-0-v1.png">
+                                </div>
+                                <div class="c-red">
+                                    <img id="c-red" src="img/Sonnet-KeyWebsite-KeyCylinder-Red-0-v1.png">
+                                </div>
+                            </div>
+                    
+                            <div class="teeth">
+                                <div class="t-green">
+                                    <img id="t-green" src="img/Sonnet-KeyWebsite-KeyTooth-Green-0-v1.png">
+                                </div>
+                                <div class="t-blue">
+                                    <img id="t-blue" src="img/Sonnet-KeyWebsite-KeyTooth-Blue-0-v1.png">
+                                </div>
+                                <div class="t-red">
+                                    <img id="t-red" src="img/Sonnet-KeyWebsite-KeyTooth-Red-0-v1.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+        
+        
+                <div class="bottom-row">
+                    <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-SW-v1.png">
+                    <img id="lock-btn" class="lock" src="img/Sonnet-KeyWebsite-PixelCorner-UnlockButton-v1.png">
+                    <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-SE-v1.png">
+                </div>
+        
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    
+    <script>
+    
+        // Cylinder and Teeth Storage
+        const cGreen = [
+            "img/Sonnet-KeyWebsite-KeyCylinder-Green-0-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Green-1-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Green-2-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Green-3-v1.png"
+        ];
+    
+        const tGreen = [
+            "img/Sonnet-KeyWebsite-KeyTooth-Green-0-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Green-1-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Green-2-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Green-3-v1.png"
+        ];
+    
+        const cBlue = [
+            "img/Sonnet-KeyWebsite-KeyCylinder-Blue-0-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Blue-1-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Blue-2-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Blue-3-v1.png"
+        ];
+    
+        const tBlue = [
+            "img/Sonnet-KeyWebsite-KeyTooth-Blue-0-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Blue-1-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Blue-2-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Blue-3-v1.png"
+        ];
+    
+        const cRed = [
+            "img/Sonnet-KeyWebsite-KeyCylinder-Red-0-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Red-1-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Red-2-v1.png",
+            "img/Sonnet-KeyWebsite-KeyCylinder-Red-3-v1.png"
+        ];
+    
+        const tRed = [
+            "img/Sonnet-KeyWebsite-KeyTooth-Red-0-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Red-1-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Red-2-v1.png",
+            "img/Sonnet-KeyWebsite-KeyTooth-Red-3-v1.png"
+        ];
+    
+        // Cylander and Teeth Display
+        const imgGreen = document.getElementById("c-green");
+        const imgBlue = document.getElementById("c-blue");
+        const imgRed = document.getElementById("c-red");
+    
+        const imgToothGreen = document.getElementById("t-green");
+        const imgToothBlue = document.getElementById("t-blue");
+        const imgToothRed = document.getElementById("t-red");
+    
+        // Lock Button
+        const lockButton = document.getElementById("lock-btn");
+    
+        // Sounds
+        const turnSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-TurnCylinderv3.wav");
+        const lockedSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-FailDoorUnlockv1.wav");
+        const unlockSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-UnlockDoorv2PopDelay.wav");
+
+        // Tracking Cylindar Code
+        let cylinderCode = "000"; 
+    
+        let currentIndex1 = 0;
+        let currentIndex2 = 0;
+        let currentIndex3 = 0;
+    
+        // Functions
+        function updateCodeValue() {
+            cylinderCode = `${currentIndex1}${currentIndex2}${currentIndex3}`;
+            
+            // Cylander testing - Remove Later
+            console.log("Current code:", cylinderCode);
+        }
+        
+
+        function triggerShake() {
+            const keyElement = document.querySelector('.key');
+            keyElement.classList.add('shake');
+
+            // Remove the class after animation ends
+            setTimeout(() => {
+                keyElement.classList.remove('shake');
+            }, 300);
+        }
+        
+        // Sounds
+        function playSound() {
+            turnSound.currentTime = 0;
+            turnSound.play();
+        } 
+
+        function playSoundLocked() {
+            lockedSound.currentTime = 0;
+            lockedSound.play();
+        } 
+
+        function playSoundUnlocked() {
+            unlockSound.currentTime = 0;
+            unlockSound.play();
+        } 
+        
+        // Turn Cylinders
+        imgGreen.addEventListener("click", () => {
+            currentIndex1 = (currentIndex1 + 1) % cGreen.length;
+            imgGreen.src = cGreen[currentIndex1];
+            imgToothGreen.src = tGreen[currentIndex1];
+            playSound();
+            updateCodeValue();
+            triggerShake();
+        });
+    
+        imgBlue.addEventListener("click", () => {
+            currentIndex2 = (currentIndex2 + 1) % cBlue.length;
+            imgBlue.src = cBlue[currentIndex2];
+            imgToothBlue.src = tBlue[currentIndex2];
+            playSound();
+            updateCodeValue();
+            triggerShake();
+        });
+    
+        imgRed.addEventListener("click", () => {
+            currentIndex3 = (currentIndex3 + 1) % cRed.length;
+            imgRed.src = cRed[currentIndex3];
+            imgToothRed.src = tRed[currentIndex3];
+            playSound();
+            updateCodeValue();
+            triggerShake();
+        });
+    
+        // Lock Logic
+        lockButton.addEventListener("click", () => {
+            if (cylinderCode === "203") {
+                playSoundUnlocked();
+
+                // Trigger key bump animation
+                const keyElement = document.querySelector('.key');
+                keyElement.classList.add('key-bump');
+
+                setTimeout(() => {
+                    keyElement.classList.remove('key-bump');
+                    window.location.href = "success.html";
+                }, 1000); 
+            } else {
+                console.log("Wrong code:", cylinderCode);
+                playSoundLocked();
+                triggerShake();
+            }
+        });
+    
+    </script>
+
+</body>
+
+</html>

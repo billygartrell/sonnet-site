@@ -1,0 +1,205 @@
+
+
+@font-face {
+    font-family: 'Munro';
+    src: url('../fonts/Munro-2LYe.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}   
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #1E1E1E;
+    font-family: 'Munro', sans-serif;
+    color:white;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    max-height: 90vh;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.top-row,
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.middle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-grow: 1;
+    height:200px;
+}
+
+.key {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.key-scale {
+    transform: scale(0.7); /* Try values between 0.5 and 0.9 */
+    transform-origin: center center;
+}
+
+.cylinders {
+    display: flex;
+    gap: 6px;
+    position: absolute;
+    top: 160px; 
+    left: 28%;
+    transform: translateX(-50%);
+}
+
+.teeth {
+    display: flex;
+    gap: 6px;
+    position: absolute;
+    top: 250px; 
+    left: 1030px;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.lock {
+    height: 211px;
+    transition: opacity 0.3s ease;
+    transform: scale(0.7); /* Adjust as needed */
+    position: relative;
+    top: 140px;
+}
+
+.lock:hover {
+    opacity: 0.6;
+}
+
+.wrapper-scale {
+    transform: scale(0.8); /* Adjust as needed */
+    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border-item{
+    transform: scale(0.8); /* Adjust as needed */
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(-1px, 1px) rotate(-1deg); }
+    50% { transform: translate(1px, -1px) rotate(0deg); }
+    75% { transform: translate(-1px, 1px) rotate(-1deg); }
+    100% { transform: translate(0, 0) rotate(0); }
+  }
+  
+  .shake {
+    animation: shake 0.3s ease-in-out;
+  }
+
+  @keyframes keyBump {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-10px); }
+    60%  { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes shake-rotated {
+    0% { transform: translate(0, 0) rotate(90deg); }
+    25% { transform: translateY(-1px) rotate(89deg); }
+    50% { transform: translateY(1px) rotate(90deg); }
+    75% { transform: translateY(-1px) rotate(89deg); }
+    100% { transform: translate(0, 0) rotate(90deg); }
+  }
+  
+  @keyframes bump-rotated {
+    0% { transform: translate(0, 0) rotate(90deg); }
+    50% { transform: translateY(-10px) rotate(90deg); }
+    100% { transform: translate(0, 0) rotate(90deg); }
+  }
+  
+  .key-bump {
+    animation: keyBump 0.4s ease;
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      height: auto;
+    }
+
+    .key.shake {
+        animation: shake-rotated 0.3s ease-in-out;
+      }
+    
+      .key.bump {
+        animation: bump-rotated 0.3s ease-in-out;
+      }
+  
+    .wrapper {
+      transform: scale(0.75);
+      transform-origin: center;
+      padding: 10px 0;
+      height: auto;
+      max-width: 100%;
+    }
+  
+    .wrapper-scale {
+      transform: scale(0.7);
+      width:100%;
+      height:100%;
+    }
+  
+    .border-item {
+      transform: scale(0.7);
+    }
+  
+    .key {
+      transform: rotate(90deg);
+      transform-origin: center center;
+    }
+  
+    .lock {
+      top: 60px; /* Adjust as needed */
+      transform: scale(0.6);
+    }
+  
+    .cylinders {
+    }
+  
+    .teeth {
+    }
+
+    .middle-row {
+        height:auto;
+        width:100%;
+    }
+  }
