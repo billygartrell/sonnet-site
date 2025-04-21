@@ -4,8 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You Find an Ornate Key</title>
-    <link rel="stylesheet" href="styles/styles.css">
 </head>
+
+<style>
+
+
+/* Standard Overrides */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #1E1E1E;
+    font-family: 'Munro', sans-serif;
+    color:white;
+    overflow-x: hidden;
+    touch-action: manipulation;
+}
+
+a:visited{
+  color:white;
+}
+
+.message {
+  font-size: 20px;
+  letter-spacing: 14px;
+  line-height: 28px;
+}
+
+/* Containers */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction:column;
+}
+
+.wrapper-scale {
+  transform: scale(0.8);
+  transform-origin: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    max-height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.top-row,
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.middle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height:100%;
+}
+
+/* Border Decorations */
+
+.border-item{
+  width:150px;
+}
+
+
+
+
+/* Lock */
+
+.lock {
+    height: 211px;
+    transition: opacity 0.3s ease;
+    transform: scale(0.7); /* Adjust as needed */
+    position: relative;
+    top: 140px;
+
+}
+
+.lock:hover {
+    opacity: 0.6;
+}
+
+/* Animations */
+
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0); }
+    25% { transform: translate(-1px, 1px) rotate(-1deg); }
+    50% { transform: translate(1px, -1px) rotate(0deg); }
+    75% { transform: translate(-1px, 1px) rotate(-1deg); }
+    100% { transform: translate(0, 0) rotate(0); }
+  }
+  
+  .shake {
+    animation: shake 0.3s ease-in-out;
+  }
+
+  @keyframes keyBump {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-10px); }
+    60%  { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes shake-rotated {
+    0% { transform: translate(0, 0) rotate(90deg); }
+    25% { transform: translateY(-1px) rotate(89deg); }
+    50% { transform: translateY(1px) rotate(90deg); }
+    75% { transform: translateY(-1px) rotate(89deg); }
+    100% { transform: translate(0, 0) rotate(90deg); }
+  }
+  
+  @keyframes bump-rotated {
+    0% { transform: translate(0, 0) rotate(90deg); }
+    50% { transform: translateY(-10px) rotate(90deg); }
+    100% { transform: translate(0, 0) rotate(90deg); }
+  }
+  
+  .key-bump {
+    animation: keyBump 0.4s ease;
+  }
+
+  /* Fade in animation */
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn .5s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+
+      
+  }
+
+  @media screen and (max-width: 700px) {
+
+    
+
+    .middle-row {
+        height:600px
+    }
+
+    .main-content {
+      height: auto;
+      width: 100%;
+    }
+
+    .border-item{
+       width:100px;
+    }
+    
+    .wrapper-scale{
+      transform: scale(1);
+      width:100%;
+    }
+
+    .lock-scale{
+        position:relative;
+    }
+
+    .lock {
+        height: 100px;
+        transition: opacity 0.3s ease;
+        position: absolute;
+        top: 50px;
+        left: -100px;
+    }
+
+  }
+
+  
+
+</style>
 
 <body>
 
@@ -17,43 +208,11 @@
                     <a href="https://en.wikipedia.org/wiki/Diamond" target="_blank"><img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NE-v1.png"></a>
                 </div>
                 <div class="middle-row">
-                    <div class="key-scale">
-                        <div class="key">
-                            <img src="img/Sonnet-KeyWebsite-KeyBase-v1.png">
-                    
-                            <div class="cylinders">
-                                <div class="c-green">
-                                    <img id="c-green" src="img/Sonnet-KeyWebsite-KeyCylinder-Green-0-v1.png">
-                                </div>
-                                <div class="c-blue">
-                                    <img id="c-blue" src="img/Sonnet-KeyWebsite-KeyCylinder-Blue-0-v1.png">
-                                </div>
-                                <div class="c-red">
-                                    <img id="c-red" src="img/Sonnet-KeyWebsite-KeyCylinder-Red-0-v1.png">
-                                </div>
-                            </div>
-                    
-                            <div class="teeth">
-                                <div class="t-green">
-                                    <img id="t-green" src="img/Sonnet-KeyWebsite-KeyTooth-Green-0-v1.png">
-                                </div>
-                                <div class="t-blue">
-                                    <img id="t-blue" src="img/Sonnet-KeyWebsite-KeyTooth-Blue-0-v1.png">
-                                </div>
-                                <div class="t-red">
-                                    <img id="t-red" src="img/Sonnet-KeyWebsite-KeyTooth-Red-0-v1.png">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
-        
-        
                 <div class="bottom-row">
                     <a href="https://en.wikipedia.org/wiki/Solid    " target="_blank"><img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-SW-v1.png"></a>
                     <div class="lock-scale"><img id="lock-btn" class="lock" src="img/Sonnet-KeyWebsite-PixelCorner-UnlockButton-v1.png"></div>
-                    <img class="border-item border-se" src="img/Sonnet-KeyWebsite-PixelCorner-SE-v1.png">
+                    <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-SE-v1.png">
                 </div>
         
             </div>
@@ -142,14 +301,13 @@
         
 
         function triggerShake() {
-            const isMobile = window.matchMedia("(max-width: 700px)").matches;
             const keyElement = document.querySelector('.key');
-            const shakeClass = isMobile ? 'shake-rotated' : 'shake';
+            keyElement.classList.add('shake');
 
-            keyElement.classList.add(shakeClass);
+            // Remove the class after animation ends
             setTimeout(() => {
-                keyElement.classList.remove(shakeClass);
-            }, 500);
+                keyElement.classList.remove('shake');
+            }, 300);
         }
         
         // Sounds
@@ -198,30 +356,23 @@
     
         // Lock Logic
         lockButton.addEventListener("click", () => {
-            const isMobile = window.matchMedia("(max-width: 700px)").matches;
-            const keyElement = document.querySelector('.key');
-
             if (cylinderCode === "203") {
                 playSoundUnlocked();
 
-                // Trigger key bump animation (rotated on mobile)
-                const bumpClass = isMobile ? 'bump-rotated' : 'key-bump';
-                keyElement.classList.add(bumpClass);
+                // Trigger key bump animation
+                const keyElement = document.querySelector('.key');
+                keyElement.classList.add('key-bump');
 
                 setTimeout(() => {
-                    keyElement.classList.remove(bumpClass);
+                    keyElement.classList.remove('key-bump');
                     window.location.href = "success.html";
                 }, 1000); 
             } else {
                 console.log("Wrong code:", cylinderCode);
                 playSoundLocked();
-
-                // Trigger shake animation (rotated on mobile)
-                const shakeClass = isMobile ? 'shake-rotated' : 'shake';
-                keyElement.classList.add(shakeClass);
+                triggerShake();
 
                 setTimeout(() => {
-                    keyElement.classList.remove(shakeClass);
                     window.location.href = "failure.html";
                 }, 1000); 
             }
