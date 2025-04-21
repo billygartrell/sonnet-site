@@ -13,8 +13,8 @@
         <div class="wrapper-scale">
             <div class="wrapper">
                 <div class="top-row">
-                    <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NW-v1.png">
-                    <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NE-v1.png">
+                    <a href="https://en.wikipedia.org/wiki/Check_(pattern)" target="_blank"><img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NW-v1.png"></a>
+                    <a href="https://en.wikipedia.org/wiki/Diamond" target="_blank"><img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NE-v1.png"></a>
                 </div>
                 <div class="middle-row">
                     <div class="key-scale">
@@ -51,7 +51,7 @@
         
         
                 <div class="bottom-row">
-                    <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-SW-v1.png">
+                    <a href="https://en.wikipedia.org/wiki/Solid    " target="_blank"><img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-SW-v1.png"></a>
                     <img id="lock-btn" class="lock" src="img/Sonnet-KeyWebsite-PixelCorner-UnlockButton-v1.png">
                     <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-SE-v1.png">
                 </div>
@@ -212,6 +212,10 @@
                 console.log("Wrong code:", cylinderCode);
                 playSoundLocked();
                 triggerShake();
+
+                setTimeout(() => {
+                    window.location.href = "failure.html";
+                }, 1000); 
             }
         });
     

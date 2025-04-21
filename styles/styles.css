@@ -18,6 +18,10 @@ html, body {
     touch-action: manipulation;
 }
 
+a:visited{
+  color:white;
+}
+
 .main-content {
     display: flex;
     justify-content: center;
@@ -113,11 +117,6 @@ html, body {
     transform: scale(0.8); /* Adjust as needed */
 }
 
-.message{
-    font-size: 32px;
-    text-align: center;
-}
-
 @keyframes shake {
     0% { transform: translate(0, 0) rotate(0); }
     25% { transform: translate(-1px, 1px) rotate(-1deg); }
@@ -155,6 +154,25 @@ html, body {
     animation: keyBump 0.4s ease;
   }
 
+  /* Fade in animation */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn .5s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .message {
+    font-size: 20px;
+    letter-spacing: 14px;
+    line-height: 28px;
+  }
+
+  /* Mobile */
 
   @media (max-width: 768px) {
     .wrapper-scale {
@@ -183,8 +201,6 @@ html, body {
       padding: 10px 0;
     }
   
-    .message {
-      font-size: 20px;
-    }
+
   }
   
