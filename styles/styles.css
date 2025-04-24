@@ -45,7 +45,7 @@ a:visited{
 }
 
 .wrapper-scale {
-  transform: scale(0.8);
+  transform: scale(0.7);
   transform-origin: center;
   display: flex;
   justify-content: center;
@@ -87,6 +87,33 @@ a:visited{
   transform: scale(0.8); /* Adjust as needed */
 }
 
+.corner{
+  position:relative;
+}
+
+.corner-center{
+  /* border:3px solid red; */
+  position:absolute;
+  height:34px;
+  width:34px;
+  z-index: 1;
+}
+
+.nw{
+  top:62px;
+  left:67px;
+}
+
+.ne{
+  top:62px;
+  left:182px;
+}
+
+.sw{
+  top:178px;
+  left:67px;
+}
+
 
 /* Key */
 
@@ -112,6 +139,7 @@ a:visited{
     top: 160px; 
     left: 28%;
     transform: translateX(-50%);
+    cursor:pointer;
 }
 
 /* Teeth */
@@ -134,6 +162,8 @@ a:visited{
     transform: scale(0.7); /* Adjust as needed */
     position: relative;
     top: 140px;
+    cursor:pointer;
+
 }
 
 .lock:hover {
@@ -227,7 +257,7 @@ a:visited{
     }
 
     .middle-row {
-        height:400px;
+        height:350px;
     }
 
     .main-content {
@@ -242,7 +272,7 @@ a:visited{
     }
     
     .wrapper-scale{
-      transform: scale(1);
+      transform: scale(0.8);
       width:100%;
       padding:0;
     }
@@ -265,10 +295,29 @@ a:visited{
         left:-103px;
     }
 
+    .corner{
+      position:relative;
+    }
     
+    .corner-center{
+      position:absolute;
+      height:15px;
+      width:15px;
+      
+    }
 
-    
+    .nw{
+      top:14px;
+      left:20px;
+    }
+    .ne{
+      top:14px;
+      left:70px;
+    }
 
+    .sw{
+      top:66px;
+      left:18px;
+    }
   }
-
   
