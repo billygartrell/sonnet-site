@@ -313,7 +313,13 @@
                         addedContent?.remove();
 
                         mainContent.style.display = "";
-                        mainContent.classList.remove("fade-out"); // Reset fade-out class
+                        mainContent.classList.remove("fade-out");
+                        mainContent.classList.add("fade-in");
+
+                        // Remove fade-in class after animation completes (optional cleanup)
+                        setTimeout(() => {
+                            mainContent.classList.remove("fade-in");
+                        }, 500);
                     }, 500);
                     resetCylinders();
                 });
