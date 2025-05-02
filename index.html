@@ -10,8 +10,11 @@
 <body>
 
     <div class="main-content">
+
         <div class="wrapper-scale">
+
             <div class="wrapper">
+                <!-- Corners - Top -->
                 <div class="top-row">
                     <div class="corner">
                         <div id="corner-green" class="corner-center nw"></div>
@@ -22,6 +25,7 @@
                         <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NE-v2.png">
                     </div>
                 </div>
+                <!-- Key -->
                 <div class="middle-row">
                     <div class="key-scale">
                         <div class="key">
@@ -52,10 +56,8 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
-        
-        
+                <!-- Corners & Lock - Bottom -->
                 <div class="bottom-row">
                     <div class="corner">
                         <div id="corner-red" class="corner-center sw"></div>
@@ -70,14 +72,14 @@
                 </div>
         
             </div>
+
         </div>
         
     </div>
     
-    
+
     
     <script>
-    
         // Cylinder and Teeth Storage
         const cGreen = [
             "img/Sonnet-KeyWebsite-KeyCylinder-Green-0-v1.png",
@@ -143,20 +145,31 @@
 
         // Tracking Cylindar Code
         let cylinderCode = "000"; 
-    
         let currentIndex1 = 0;
         let currentIndex2 = 0;
         let currentIndex3 = 0;
     
-        // Functions
-        function updateCodeValue() {
-            cylinderCode = `${currentIndex1}${currentIndex2}${currentIndex3}`;
-            
-            // Cylander testing - Remove Later
-            console.log("Current code:", cylinderCode);
-        }
-        
+        ////////////////////////////// Functions //////////////////////////////
 
+        /////////////// Play Sounds ///////////////
+        // Turn
+        function playSound() {
+            turnSound.currentTime = 0;
+            turnSound.play();
+        } 
+        // Locked
+        function playSoundLocked() {
+            lockedSound.currentTime = 0;
+            lockedSound.play();
+        } 
+        // Unlocked
+        function playSoundUnlocked() {
+            unlockSound.currentTime = 0;
+            unlockSound.play();
+        } 
+
+        /////////////// Animations ///////////////
+        // Shake Animation
         function triggerShake() {
             const isMobile = window.matchMedia("(max-width: 700px)").matches;
             const keyElement = document.querySelector('.key');
@@ -168,21 +181,14 @@
             }, 500);
         }
         
-        // Sounds
-        function playSound() {
-            turnSound.currentTime = 0;
-            turnSound.play();
-        } 
-
-        function playSoundLocked() {
-            lockedSound.currentTime = 0;
-            lockedSound.play();
-        } 
-
-        function playSoundUnlocked() {
-            unlockSound.currentTime = 0;
-            unlockSound.play();
-        } 
+        /////////////// Cylinder Logic ///////////////
+        // Update Cylinder Code On Click
+        function updateCodeValue() {
+            cylinderCode = `${currentIndex1}${currentIndex2}${currentIndex3}`;
+            
+            // Cylander testing - Remove Later
+            console.log("Current code:", cylinderCode);
+        }
         
         // Turn Cylinders
         imgGreen.addEventListener("click", () => {
@@ -212,7 +218,7 @@
             triggerShake();
         });
 
-        //Reset Cylinder
+        // Reset Cylinder
         function resetCylinders() {
             currentIndex1 = 0;
             currentIndex2 = 0;
@@ -230,7 +236,7 @@
             updateCodeValue();
         }
     
-        // Lock Logic
+        /////////////// Lock Logic ///////////////
         lockButton.addEventListener("click", () => {
             const isMobile = window.matchMedia("(max-width: 700px)").matches;
             const keyElement = document.querySelector('.key');
@@ -268,7 +274,7 @@
             }
         });
 
-        // Corner Click Events
+        /////////////// Corner Click Events ///////////////
         document.getElementById("corner-green").addEventListener("click", () => {
             showScreen("green-screen");
         });
@@ -286,7 +292,6 @@
             const mainContent = document.querySelector(".main-content");
             const template = document.getElementById(templateId);
 
-            // Add fade-out class
             mainContent.classList.add("fade-out");
 
             // Wait for animation to finish before switching screens
@@ -317,7 +322,7 @@
     
     </script>
 
-    <!------- TEMPLATES ------->
+    <!-------------- TEMPLATES -------------->
     <!-- Success Template -->
     <template id="success-screen">
         <div class="main-content fade-in">
