@@ -109,6 +109,7 @@ a:visited{
   height:34px;
   width:34px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .nw{
