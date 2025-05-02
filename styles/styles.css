@@ -34,6 +34,16 @@ a:visited{
   line-height: 28px;
 }
 
+.hint{
+  text-align:center;
+  letter-spacing: 2px;
+  font-size: 32px;
+  line-height: 48px;
+  margin-top:100px;
+
+
+}
+
 /* Containers */
 .main-content {
     display: flex;
@@ -318,6 +328,10 @@ a:visited{
     .sw{
       top:66px;
       left:18px;
+    }
+
+    .mobile-hide{
+      display:none;
     }
   }
   

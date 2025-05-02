@@ -14,12 +14,12 @@
             <div class="wrapper">
                 <div class="top-row">
                     <div class="corner">
-                        <a href="https://en.wikipedia.org/wiki/Check_(pattern)" target="_blank"><div class="corner-center nw"></div></a>
-                        <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NW-v1.png">
+                        <a href="green.html" target=""><div class="corner-center nw"></div></a>
+                        <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NW-v2.png">
                     </div>
                     <div class="corner">
-                        <a href="https://en.wikipedia.org/wiki/Diamond" target="_blank"><div class="corner-center ne"></div></a>
-                        <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NE-v1.png">
+                        <a href="blue.html" target=""><div class="corner-center ne"></div></a>
+                        <img class="border-item" src="img/Sonnet-KeyWebsite-PixelCorner-NE-v2.png">
                     </div>
                 </div>
                 <div class="middle-row">
@@ -58,11 +58,11 @@
         
                 <div class="bottom-row">
                     <div class="corner">
-                        <a href="https://en.wikipedia.org/wiki/Solid    " target="_blank"><div class="corner-center sw"></div></a>
-                        <img class="border-item border-se" src="img/Sonnet-KeyWebsite-PixelCorner-SW-v1.png">
+                        <a href="red.html" target=""><div class="corner-center sw"></div></a>
+                        <img class="border-item border-se" src="img/Sonnet-KeyWebsite-PixelCorner-SW-v2.png">
                     </div>
                     
-                    <div class="lock-scale"><img id="lock-btn" class="lock" src="img/Sonnet-KeyWebsite-PixelCorner-UnlockButton-v1.png"></div>
+                    <div class="lock-scale"><img id="lock-btn" class="lock" src="img/Sonnet-KeyWebsite-PixelCorner-UnlockButton-v2.png"></div>
                     
                     <div class="corner">
                         <img class="border-item border-se" src="img/Sonnet-KeyWebsite-PixelCorner-SE-v1.png">
@@ -135,8 +135,8 @@
     
         // Sounds
         const turnSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-TurnCylinderv3.wav");
-        const lockedSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-FailDoorUnlockv1.wav");
-        const unlockSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-UnlockDoorv2PopDelay.wav");
+        const lockedSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-FailDoorUnlockv2.wav");
+        const unlockSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-UnlockDoorv3.wav");
 
         // Tracking Cylindar Code
         let cylinderCode = "000"; 
@@ -214,7 +214,7 @@
             const isMobile = window.matchMedia("(max-width: 700px)").matches;
             const keyElement = document.querySelector('.key');
 
-            if (cylinderCode === "203") {
+            if (cylinderCode === "120") {
                 playSoundUnlocked();
 
                 // Trigger key bump animation (rotated on mobile)

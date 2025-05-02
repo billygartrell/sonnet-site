@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locked</title>
+    <title>An old postcard...</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
 
-    <div class="main-content fade-in">
-        <p class="message">
-            You inserted the key<br><br>
-            into the lock and blew..<br><br><br><br>
-            but nothing happened.<br><br><br><br>
-            
-            <a id="back-button" href="index.html">< go back</a>
-        </p>
+    <div class="wrapper-scale">
 
-        
-        
+        <div class="main-content fade-in">
+            <img src="img/GreenHint-Postcard.png" title="A postcard">
+            <p class="message hint ">
+            An old postcard commemorating the opening<br class="mobile-hide">
+            of the Flats Outpost. It's hard to image<br class="mobile-hide">
+            what it was like back&nbsp;then.
+            <br><br>
+                <a id="back-button" href="index.html">< go back</a>
+            </p>
+
+        </div>
+
     </div>
 
     <script>
@@ -40,7 +43,7 @@
                 window.location.href = backButton.href;
             }, 500); // Delay for .5 second
         });
-
+        
     </script>
 
 </body>

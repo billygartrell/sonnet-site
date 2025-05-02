@@ -11,16 +11,35 @@
 
     <div class="main-content fade-in">
         <p class="message">
-        You inserted the key<br><br>
-        into the lock and blew..<br><br><br><br>
-        You feel the door shift open..<br><br><br><br>
+            You inserted the key<br><br>
+            into the lock and blew..<br><br><br><br>
+            You feel the door shift open..<br><br><br><br>
 
-        <a href="index.html">< go back</a>
+            <a id="back-button" href="index.html">< go back</a>
         </p>
 
-        
-        
     </div>
+
+    <script>
+
+        const backButton = document.getElementById("back-button");
+
+        // Sounds
+        const backSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-GoBackv1.wav");
+
+        function playSound() {
+            backSound.play();
+        } 
+
+        backButton.addEventListener("click", () => {
+            event.preventDefault(); // Prevent immediate navigation
+            playSound();
+            setTimeout(() => {
+                window.location.href = backButton.href;
+            }, 500); // Delay for .5 second
+        });
+        
+    </script>
 
 </body>
 </html>
