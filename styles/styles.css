@@ -269,8 +269,26 @@ a:visited{
 
   @media screen and (max-width: 700px) {
 
+    .hint{
+      margin-top:50px;
+    }
+
+    .hint-img{
+      max-width:75%;
+    }
+
+    .blue-hint-img{
+      max-width:50%;
+    }
+
+    .red-hint-img{
+      max-width:50%;
+    }
+
     .message{
-      padding:50px;
+      padding:0px;
+      font-size:24px;
+      line-height:36px;
     }
 
     .key-scale {
@@ -335,17 +353,23 @@ a:visited{
     }
 
     .nw{
-      top:14px;
-      left:20px;
+      height:50px;
+      width:50px;
+      top:0px;
+      left:0px;
     }
     .ne{
-      top:14px;
-      left:70px;
+      height:50px;
+      width:50px;
+      top:0px;
+      left:50px;
     }
 
     .sw{
-      top:66px;
-      left:18px;
+      height:50px;
+      width:50px;
+      top:50px;
+      left:0px;
     }
 
     .mobile-hide{

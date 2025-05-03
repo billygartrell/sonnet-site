@@ -9,38 +9,149 @@
 
 <body>
 
-    <div class="main-content fade-in">
-        <p class="message">
-            You inserted the key<br><br>
-            into the lock and blew..<br><br><br><br>
-            You feel the door shift open..<br><br><br><br>
+    <div class="wrapper-scale">
+        <div class="main-content fade-in">
+            <p class="message hint">
+                You find yourself in the back room<br class="mobile-hide">
+                of the Stonebread Hollow, a cafe nestled<br class="mobile-hide">
+                on the northern edge of town.<br><br>
 
-            <a id="back-button" href="index.html">< go back</a>
-        </p>
-
+                The space itself is inviting- a warm, candlelit<br class="mobile-hide">
+                cavern lined with bookshelves, subterranean plants,<br class="mobile-hide">
+                and communal tables for patrons to unwind.<br class="mobile-hide">
+                A small stage is carved into the back of the chamber.<br class="mobile-hide">
+                
+            <br><br>
+                <a id="success-2-button" href="#">Fix your eyes on the stage.</a>
+            </p>  
+        </div>
     </div>
 
+    <template id="success-screen-3">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    A musician sits on the platform, carefully tuning<br class="mobile-hide">
+                    a portative organ. Based on the flyers outside,<br class="mobile-hide">
+                    you gather that the performance<br class="mobile-hide">
+                    won’t begin for a while.<br><br>
+    
+                    Exhausted, you consider resting<br class="mobile-hide">
+                    your legs for a minute.
+    
+                    
+                <br><br>
+                    <a id="success-3-button" href="#">Take a seat.</a>
+                </p>  
+            </div>
+        </div>
+    </template>
+    
+    <template id="success-screen-4">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    Despite your best intentions,<br class="mobile-hide">
+                    you feel your mind start to wander<br class="mobile-hide">
+                    towards unpleasant memories.
+    
+                <br><br>
+                    <a id="success-4-button" href="#">Give in...</a>
+                </p>  
+            </div>
+        </div>
+    </template>
+    
+    <template id="success-screen-5">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    The blinding glint of<br class="mobile-hide">
+                    sunlight on steel.                    
+    
+                <br><br>
+                    <a id="success-5-button" href="#">...and remember...</a>
+                </p>  
+            </div>
+        </div>
+    </template>
+    
+    <template id="success-screen-6">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    Eyes the color of<br class="mobile-hide">
+                    poison oak.
+    
+                <br><br>
+                    <a id="success-6-button" href="#">...</a>
+                </p>  
+            </div>
+        </div>
+    </template>
+    
+    <template id="success-screen-7">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    <a id="" href="#">...</a>
+                </p>  
+            </div>
+        </div>
+    </template>
+    
+
     <script>
-
-        const backButton = document.getElementById("back-button");
-
-        // Sounds
-        const backSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-GoBackv1.wav");
-
-        function playSound() {
-            backSound.play();
-        } 
-
-        backButton.addEventListener("click", () => {
-            event.preventDefault(); // Prevent immediate navigation
-            playSound();
+        // Ordered list of success screen template IDs
+        const successScreens = [
+            "success-screen-3",
+            "success-screen-4",
+            "success-screen-5",
+            "success-screen-6",
+            "success-screen-7"
+        ];
+    
+        let currentIndex = 0;
+    
+        function showNextScreen() {
+            if (currentIndex >= successScreens.length) return;
+    
+            const templateId = successScreens[currentIndex];
+            const template = document.getElementById(templateId);
+    
+            const oldMain = document.querySelector(".main-content");
+            oldMain.classList.add("fade-out");
+    
             setTimeout(() => {
-                window.location.href = backButton.href;
-            }, 500); // Delay for .5 second
+                oldMain.remove();
+    
+                // Clone and append the new screen
+                const clone = template.content.cloneNode(true);
+                document.body.appendChild(clone);
+    
+                currentIndex++;
+    
+                // Set up click on the next screen’s button
+                const nextButton = document.querySelector(".main-content a");
+                if (nextButton) {
+                    nextButton.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        showNextScreen();
+                    });
+                }
+            }, 500); // match fade-out time
+        }
+    
+        // Initial event to kick off the sequence
+        document.getElementById("success-2-button").addEventListener("click", (e) => {
+            e.preventDefault();
+            showNextScreen();
         });
-        
     </script>
 
+
 </body>
+
+
 </html>
 

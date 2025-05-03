@@ -141,7 +141,7 @@
         const unlockSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-UnlockDoorv3.wav");
         const successSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-SuccessJinglev1.wav");
         const failSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-ErrorNoisev1.wav");
-        const backSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-GoBackv1.wav");
+        // const backSound = new Audio("audio/Bloom_SFX_YFBV_WhistleKey-GoBackv1.wav");
 
         // Tracking Cylindar Code
         let cylinderCode = "000"; 
@@ -306,7 +306,7 @@
                 const backButton = document.getElementById("back-button");
                 backButton.addEventListener("click", (event) => {
                     event.preventDefault();
-                    backSound.play();
+                    // backSound.play();
 
                     setTimeout(() => {
                         const addedContent = document.querySelector(".main-content.fade-in") || document.querySelector(".main-content");
@@ -329,28 +329,18 @@
     </script>
 
     <!-------------- TEMPLATES -------------->
-    <!-- Success Template -->
-    <template id="success-screen">
-        <div class="main-content fade-in">
-            <p class="message">
-                You inserted the key<br><br>
-                into the lock and blew..<br><br><br><br>
-                You feel the door shift open..<br><br><br><br>
-
-                <a id="back-button" href="#">< go back</a>
-            </p>
-        </div>
-    </template>
 
     <!-- Failure Template -->
     <template id="failure-screen">
-        <div class="main-content fade-in">
-            <p class="message">
-                You inserted the key<br><br>
-                into the lock and blew..<br><br><br><br>
-                but nothing happened.<br><br><br><br>   
-                <a id="back-button" href="#">< go back</a>
-            </p>
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    You insert the ornate key<br>
+                    into the lock and blow...<br><br>
+                    but nothing happens.<br><br>   
+                    <a id="back-button" href="#">< go back</a>
+                </p>
+            </div>
         </div>
     </template>
 
@@ -358,13 +348,13 @@
     <template id="green-screen">
         <div class="wrapper-scale">
             <div class="main-content fade-in">
-                <img src="img/GreenHint-Postcard.png" title="A postcard">
+                <img class="hint-img" src="img/GreenHint-Postcard.png" title="A postcard">
                 <p class="message hint ">
                 An old postcard commemorating the opening<br class="mobile-hide">
                 of the Flats Outpost. It's hard to image<br class="mobile-hide">
                 what it was like back&nbsp;then.
                 <br><br>
-                    <a id="back-button" href="index.html">< go back</a>
+                    <a id="back-button" href="#">< go back</a>
                 </p>
             </div>
         </div>
@@ -374,13 +364,13 @@
     <template id="blue-screen">
         <div class="wrapper-scale">
             <div class="main-content fade-in">
-                <img src="img/BlueHint-Book-v1.png" title="A tome">
+                <img class="blue-hint-img" src="img/BlueHint-Book-v1.png" title="A tome">
                 <p class="message hint">
                 An embellished tome detailing the First Pilgrimage.<br class="mobile-hide">
                 On sale at Alma's Thrift... if you're okay<br class="mobile-hide">
                 with a few missing&nbsp;pages.
                 <br><br>
-                    <a id="back-button" href="index.html">< go back</a>
+                    <a id="back-button" href="#">< go back</a>
                 </p>  
             </div>
         </div>
@@ -390,16 +380,35 @@
     <template id="red-screen">
         <div class="wrapper-scale">
             <div class="main-content fade-in">
-                <img src="img/RedHint-WantedPoster-v1.png" title="A wanted poster">
+                <img class="red-hint-img" src="img/RedHint-WantedPoster-v1.png" title="A wanted poster">
                 <p class="message hint">
                 A worn poster with a face<br class="mobile-hide">
                 you wish you could&nbsp;forget.
                 <br><br>
-                    <a id="back-button" href="index.html">< go back</a>
+                    <a id="back-button" href="#">< go back</a>
                 </p>
             </div>
         </div>
     </template>
+
+    <!-- Success Templates -->
+
+    <!-- Success Template -->
+    <template id="success-screen">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    You insert the ornate key<br>
+                    into the lock and blow...<br><br>
+                    You feel the door shift open.<br><br>
+
+                    <a id="success-1-button" href="success.html">Step inside.</a>
+                </p>
+            </div>
+        </div>
+    </template>
+
+
 
 </body>
 
