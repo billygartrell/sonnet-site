@@ -9,9 +9,8 @@
 
 <body>
 
-
-    <div class="main-content fade-in">
-        <div class="wrapper-scale">
+    <div class="wrapper-scale">
+        <div class="main-content fade-in">
             <p class="message hint">
                 You find yourself in the back room<br class="mobile-hide">
                 of the Stonebread Hollow, a cafe nestled<br class="mobile-hide">
@@ -29,10 +28,9 @@
     </div>
 
     <template id="success-screen-3">
-        <div class="main-content fade-in">
-            <div class="wrapper-scale">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
                 <p class="message hint">
-                    <img class="hint-img" src="img/Sonnet-MainSolution-OrganPlayer-v1.png" title="A musician"><br><br>
                     A musician sits on the platform, carefully tuning<br class="mobile-hide">
                     a portative organ. Based on the flyers outside,<br class="mobile-hide">
                     you gather that the performance<br class="mobile-hide">
@@ -50,8 +48,8 @@
     </template>
     
     <template id="success-screen-4">
-        <div class="main-content fade-in">
-            <div class="wrapper-scale">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
                 <p class="message hint">
                     Despite your best intentions,<br class="mobile-hide">
                     you feel your mind start to wander<br class="mobile-hide">
@@ -65,22 +63,22 @@
     </template>
     
     <template id="success-screen-5">
-        <div class="main-content fade-in">
-            <div class="wrapper-scale">
-                    <p class="message hint">
-                        The blinding glint of<br class="mobile-hide">
-                        sunlight on steel.                    
-        
-                    <br><br>
-                        <a id="success-5-button" href="#">...and remember...</a>
-                    </p>  
-                </div>
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    The blinding glint of<br class="mobile-hide">
+                    sunlight on steel.                    
+    
+                <br><br>
+                    <a id="success-5-button" href="#">...and remember...</a>
+                </p>  
             </div>
+        </div>
     </template>
     
     <template id="success-screen-6">
-        <div class="main-content fade-in">
-            <div class="wrapper-scale">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
                 <p class="message hint">
                     Eyes the color of<br class="mobile-hide">
                     poison oak.
@@ -93,10 +91,10 @@
     </template>
     
     <template id="success-screen-7">
-        <div class="main-content fade-in">
-            <div class="wrapper-scale">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
                 <p class="message hint">
-                    <a href="https://www.playsonnet.com">...</a>
+                    <a id="" href="#">...</a>
                 </p>  
             </div>
         </div>
@@ -136,13 +134,10 @@
                 // Set up click on the next screen’s button
                 const nextButton = document.querySelector(".main-content a");
                 if (nextButton) {
-                    // Only prevent default if there's another screen to show
-                    if (currentIndex < successScreens.length) {
-                        nextButton.addEventListener("click", (e) => {
-                            e.preventDefault();
-                            showNextScreen();
-                        });
-                    }
+                    nextButton.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        showNextScreen();
+                    });
                 }
             }, 500); // match fade-out time
         }

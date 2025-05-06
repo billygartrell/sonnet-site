@@ -256,6 +256,39 @@
                     successSound.play();
                 }, 2000);
 
+            } else if (cylinderCode === "210"){
+                console.log("Wrong code:", cylinderCode);
+                playSoundUnlocked();
+
+                // Trigger key bump animation (rotated on mobile)
+                const bumpClass = isMobile ? 'bump-rotated' : 'key-bump';
+                keyElement.classList.add(bumpClass);
+
+                setTimeout(() => {
+                    keyElement.classList.remove(shakeClass);
+                    window.location.href = "success-alt-1.html";
+                }, 1000);
+                setTimeout(() => {
+                    successSound.play();
+                }, 2000);
+            
+
+             } else if (cylinderCode === "201"){
+                console.log("Wrong code:", cylinderCode);
+                playSoundUnlocked();
+
+                // Trigger key bump animation (rotated on mobile)
+                const bumpClass = isMobile ? 'bump-rotated' : 'key-bump';
+                keyElement.classList.add(bumpClass);
+
+                setTimeout(() => {
+                    keyElement.classList.remove(shakeClass);
+                    window.location.href = "succes-alt-2.html";
+                }, 1000);
+                setTimeout(() => {
+                    successSound.play();
+                }, 2000);
+            
             } else {
                 console.log("Wrong code:", cylinderCode);
                 playSoundLocked();
@@ -332,22 +365,22 @@
 
     <!-- Failure Template -->
     <template id="failure-screen">
-        <div class="wrapper-scale">
-            <div class="main-content fade-in">
+        <div class="main-content fade-in">
+            <div class="wrapper-scale">
                 <p class="message hint">
                     You insert the ornate key<br>
                     into the lock and blow...<br><br>
                     but nothing happens.<br><br>   
                     <a id="back-button" href="#">< go back</a>
                 </p>
-            </div>
+                </div>
         </div>
     </template>
 
     <!-- Green Hint Template -->
     <template id="green-screen">
-        <div class="wrapper-scale">
-            <div class="main-content fade-in">
+        <div class="main-content fade-in">
+            <div class="wrapper-scale">
                 <img class="hint-img" src="img/GreenHint-Postcard.png" title="A postcard">
                 <p class="message hint ">
                 An old postcard commemorating the opening<br class="mobile-hide">
@@ -362,8 +395,8 @@
 
     <!-- Blue Hint Template -->
     <template id="blue-screen">
-        <div class="wrapper-scale">
-            <div class="main-content fade-in">
+        <div class="main-content fade-in">
+            <div class="wrapper-scale">
                 <img class="blue-hint-img" src="img/BlueHint-Book-v1.png" title="A tome">
                 <p class="message hint">
                 An embellished tome detailing the First Pilgrimage.<br class="mobile-hide">
@@ -378,8 +411,8 @@
 
     <!-- Red Hint Template -->
     <template id="red-screen">
-        <div class="wrapper-scale">
-            <div class="main-content fade-in">
+        <div class="main-content fade-in">
+            <div class="wrapper-scale">
                 <img class="red-hint-img" src="img/RedHint-WantedPoster-v1.png" title="A wanted poster">
                 <p class="message hint">
                 A worn poster with a face<br class="mobile-hide">

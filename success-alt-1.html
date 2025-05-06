@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You've Unlocked Something!</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+    <div class="wrapper-scale">
+        <div class="main-content fade-in">
+            <p class="message hint">
+                You insert the ornate key<br class="mobile-hide">
+                into the lock and blow...<br class="mobile-hide"><br>
+
+                And you feel the door shift open.<br class="mobile-hide">
+                
+            <br><br>
+                <a id="success-2-button" href="#">Step inside.</a>
+            </p>  
+        </div>
+    </div>
+
+    <template id="success-screen-3">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    You enter a cramped shop filled with bric-a-brac.<br class="mobile-hide">
+                    The musty smell of old parchment invades your nose as<br class="mobile-hide">
+                    more ephemera comes into focus, large and small-<br class="mobile-hide">
+                    A candelabra, a chipped set of commemorative dishware,<br class="mobile-hide">
+                    a box overflowing with tiny gears.<br class="mobile-hide"><br>
+
+                    You hear a rustle and notice several<br class="mobile-hide">
+                    large birdcages hanging from the ceiling<br class="mobile-hide">
+                    filled with inhabitants pecking and preening.<br class="mobile-hide">    
+                    
+                <br><br>
+                    <a id="success-3-button" href="#">Riffle through the shelves.</a>
+                </p>  
+            </div>
+        </div>
+    </template>
+    
+    <template id="success-screen-4">
+        <div class="wrapper-scale">
+            <div class="main-content fade-in">
+                <p class="message hint">
+                    <img class="hint-img" src="img/Sonnet-BusinessCardSolution-Shopkeeper-v1.png.png" title="A woman"><br><br>
+
+                    A loud squawk fills the room.<br class="mobile-hide"> <br>
+ 
+                    You realize that hidden amongst the clutter sits a woman<br class="mobile-hide"> 
+                    adorned in extravagant accessories and an irritable scowl.<br class="mobile-hide"> 
+                    The sound didn’t come from the birds but from<br class="mobile-hide"> 
+                    the ostentatious figure herself.<br class="mobile-hide"> <br>
+
+                    You get the sense that you weren’t supposed<br class="mobile-hide"> 
+                    to have the combination for this lock after all. <br class="mobile-hide"> 
+                    Maybe it's best to move on and find the<br class="mobile-hide"> 
+                    door you’re actually looking for.<br class="mobile-hide"> <br>
+
+                    Despite your best intentions,<br class="mobile-hide">
+                    you feel your mind start to wander<br class="mobile-hide">
+                    towards unpleasant memories.
+    
+                    <br><br>
+                    <a id="" href="index.html">Exit the shop while avoiding eye contact.</a>
+                </p>  
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // Ordered list of success screen template IDs
+        const successScreens = [
+            "success-screen-3",
+            "success-screen-4",
+        ];
+    
+        let currentIndex = 0;
+    
+        function showNextScreen() {
+            if (currentIndex >= successScreens.length) return;
+    
+            const templateId = successScreens[currentIndex];
+            const template = document.getElementById(templateId);
+    
+            const oldMain = document.querySelector(".main-content");
+            oldMain.classList.add("fade-out");
+    
+            setTimeout(() => {
+                oldMain.remove();
+    
+                // Clone and append the new screen
+                const clone = template.content.cloneNode(true);
+                document.body.appendChild(clone);
+    
+                currentIndex++;
+    
+                // Set up click on the next screen’s button
+                const nextButton = document.querySelector(".main-content a");
+                if (nextButton) {
+                    nextButton.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        showNextScreen();
+                    });
+                } 
+            }, 500); // match fade-out time
+        }
+    
+        // Initial event to kick off the sequence
+        document.getElementById("success-2-button").addEventListener("click", (e) => {
+            e.preventDefault();
+            showNextScreen();
+        });
+    </script>
+
+
+</body>
+
+
+</html>
+
